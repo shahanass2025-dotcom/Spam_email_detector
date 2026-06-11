@@ -5,7 +5,54 @@ st.set_page_config(
     page_icon="📧",
     layout="centered"
 )
+theme = st.sidebar.radio(
+    "🎨 Select Theme",
+    ["Dark", "Light"]
+)
 
+if theme == "Dark":
+    st.markdown("""
+        <style>
+        .stApp {
+            background-color: #0E1117;
+            color: white;
+        }
+
+        .stTextInput > div > div > input,
+        .stTextArea textarea {
+            background-color: #262730;
+            color: white;
+        }
+
+        .stButton > button {
+            background-color: #FF4B4B;
+            color: white;
+            border-radius: 10px;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+else:
+    st.markdown("""
+        <style>
+        .stApp {
+            background-color: white;
+            color: black;
+        }
+
+        .stTextInput > div > div > input,
+        .stTextArea textarea {
+            background-color: white;
+            color: black;
+        }
+
+        .stButton > button {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 st.title("📧 Email Spam Detector")
 st.write("Detect whether an email is Spam or Legitimate")
 
